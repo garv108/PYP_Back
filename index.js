@@ -13,6 +13,10 @@ app.use(rateLimit({
   max: 300, // 300 requests per IP
   message: "Too many requests, please try again later."
 }));
+
+// ✅ Put this line just after initializing the app
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(express.json());
 app.use(cors());
